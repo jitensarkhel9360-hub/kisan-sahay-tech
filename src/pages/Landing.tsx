@@ -1,22 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { 
-  Sprout, 
-  Droplets, 
-  Bug, 
-  TrendingUp, 
-  FileText, 
-  MessageCircle,
-  Leaf,
-  Sun,
-  CloudRain,
-  Wheat
-} from "lucide-react";
-
+import { Sprout, Droplets, Bug, TrendingUp, FileText, MessageCircle, Leaf, Sun, CloudRain, Wheat } from "lucide-react";
 const Landing = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-20">
         <nav className="flex justify-between items-center mb-16">
@@ -53,7 +40,7 @@ const Landing = () => {
 
           <div className="flex flex-wrap justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
           <Link to="/auth">
-            <Button size="lg" className="bg-gradient-primary hover:shadow-glow text-lg px-8 py-6">
+            <Button size="lg" className="bg-gradient-primary hover:shadow-glow text-lg px-8 py-6 bg-green-700 hover:bg-green-600">
               Get Started
             </Button>
           </Link>
@@ -65,18 +52,27 @@ const Landing = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
-            {[
-              { icon: Wheat, label: "Crops", value: "50+" },
-              { icon: Bug, label: "Diseases", value: "100+" },
-              { icon: FileText, label: "Schemes", value: "30+" },
-              { icon: TrendingUp, label: "Markets", value: "500+" }
-            ].map((stat, idx) => (
-              <Card key={idx} className="p-4 text-center bg-card/80 backdrop-blur border-border/50">
+            {[{
+            icon: Wheat,
+            label: "Crops",
+            value: "50+"
+          }, {
+            icon: Bug,
+            label: "Diseases",
+            value: "100+"
+          }, {
+            icon: FileText,
+            label: "Schemes",
+            value: "30+"
+          }, {
+            icon: TrendingUp,
+            label: "Markets",
+            value: "500+"
+          }].map((stat, idx) => <Card key={idx} className="p-4 text-center bg-card/80 backdrop-blur border-border/50">
                 <stat.icon className="w-8 h-8 mx-auto mb-2 text-primary" />
                 <div className="text-2xl font-bold text-foreground">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </header>
@@ -93,68 +89,57 @@ const Landing = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              icon: Sprout,
-              title: "Crop Recommendation",
-              description: "AI suggests optimal crops based on soil pH, NPK, rainfall, and temperature data",
-              color: "text-success",
-              bgColor: "bg-success/10",
-              link: "/crop"
-            },
-            {
-              icon: Droplets,
-              title: "Fertilizer Advisor",
-              description: "ML-based fertilizer type and quantity recommendations for maximum yield",
-              color: "text-info",
-              bgColor: "bg-info/10",
-              link: "/fertilizer"
-            },
-            {
-              icon: Bug,
-              title: "Disease Detection",
-              description: "CNN-powered leaf image analysis detecting 100+ crop diseases instantly",
-              color: "text-destructive",
-              bgColor: "bg-destructive/10",
-              link: "/disease"
-            },
-            {
-              icon: TrendingUp,
-              title: "Market Price Prediction",
-              description: "LSTM time-series forecasting of crop prices using eNAM mandi data",
-              color: "text-warning",
-              bgColor: "bg-warning/10",
-              link: "/market"
-            },
-            {
-              icon: FileText,
-              title: "Scheme Recommender",
-              description: "Hybrid ML matching your profile to PM-KISAN, PMFBY, PMKSY and 30+ schemes",
-              color: "text-accent",
-              bgColor: "bg-accent/10",
-              link: "/schemes"
-            },
-            {
-              icon: MessageCircle,
-              title: "AI Assistant",
-              description: "Multilingual chatbot answering farming queries in Hindi, English, Tamil",
-              color: "text-primary",
-              bgColor: "bg-primary/10",
-              link: "/ai-assistant"
-            }
-          ].map((feature, idx) => (
-            <Link key={idx} to={feature.link}>
-              <Card 
-                className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 bg-gradient-card border-border/50 cursor-pointer hover:border-primary/50"
-              >
+          {[{
+          icon: Sprout,
+          title: "Crop Recommendation",
+          description: "AI suggests optimal crops based on soil pH, NPK, rainfall, and temperature data",
+          color: "text-success",
+          bgColor: "bg-success/10",
+          link: "/crop"
+        }, {
+          icon: Droplets,
+          title: "Fertilizer Advisor",
+          description: "ML-based fertilizer type and quantity recommendations for maximum yield",
+          color: "text-info",
+          bgColor: "bg-info/10",
+          link: "/fertilizer"
+        }, {
+          icon: Bug,
+          title: "Disease Detection",
+          description: "CNN-powered leaf image analysis detecting 100+ crop diseases instantly",
+          color: "text-destructive",
+          bgColor: "bg-destructive/10",
+          link: "/disease"
+        }, {
+          icon: TrendingUp,
+          title: "Market Price Prediction",
+          description: "LSTM time-series forecasting of crop prices using eNAM mandi data",
+          color: "text-warning",
+          bgColor: "bg-warning/10",
+          link: "/market"
+        }, {
+          icon: FileText,
+          title: "Scheme Recommender",
+          description: "Hybrid ML matching your profile to PM-KISAN, PMFBY, PMKSY and 30+ schemes",
+          color: "text-accent",
+          bgColor: "bg-accent/10",
+          link: "/schemes"
+        }, {
+          icon: MessageCircle,
+          title: "AI Assistant",
+          description: "Multilingual chatbot answering farming queries in Hindi, English, Tamil",
+          color: "text-primary",
+          bgColor: "bg-primary/10",
+          link: "/ai-assistant"
+        }].map((feature, idx) => <Link key={idx} to={feature.link}>
+              <Card className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 bg-gradient-card border-border/50 cursor-pointer hover:border-primary/50">
                 <div className={`w-14 h-14 rounded-xl ${feature.bgColor} flex items-center justify-center mb-4`}>
                   <feature.icon className={`w-7 h-7 ${feature.color}`} />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
               </Card>
-            </Link>
-          ))}
+            </Link>)}
         </div>
       </section>
 
@@ -191,8 +176,6 @@ const Landing = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Landing;
