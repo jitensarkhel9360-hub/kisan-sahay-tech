@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
 import { 
   Sprout, 
   Droplets, 
@@ -9,8 +10,10 @@ import {
   MessageCircle,
   Leaf,
   CloudRain,
-  ThermometerSun
+  ThermometerSun,
+  ArrowLeft
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import CropRecommendation from "@/components/CropRecommendation";
 import FertilizerRecommendation from "@/components/FertilizerRecommendation";
 import DiseaseDetection from "@/components/DiseaseDetection";
@@ -26,9 +29,17 @@ const Dashboard = () => {
       <header className="border-b border-border bg-card/50 backdrop-blur sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <Leaf className="w-8 h-8 text-primary" />
-              <span className="text-2xl font-bold text-foreground">AI-Kisan Dashboard</span>
+            <div className="flex items-center gap-4">
+              <Link to="/">
+                <Button variant="ghost" size="sm">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back
+                </Button>
+              </Link>
+              <div className="flex items-center gap-2">
+                <Leaf className="w-8 h-8 text-primary" />
+                <span className="text-2xl font-bold text-foreground">AI-Kisan Dashboard</span>
+              </div>
             </div>
             <WeatherWidget />
           </div>

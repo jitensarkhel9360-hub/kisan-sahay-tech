@@ -52,14 +52,16 @@ const Landing = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-            <Link to="/dashboard">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-glow">
-                Get Started
-              </Button>
-            </Link>
-            <Button size="lg" variant="outline">
-              Watch Demo
+          <Link to="/auth">
+            <Button size="lg" className="bg-gradient-primary hover:shadow-glow text-lg px-8 py-6">
+              Get Started
             </Button>
+          </Link>
+          <Link to="/ai-assistant">
+            <Button size="lg" variant="outline" className="border-2 hover:bg-primary/10 text-lg px-8 py-6">
+              AI Assistant
+            </Button>
+          </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
@@ -97,101 +99,65 @@ const Landing = () => {
               title: "Crop Recommendation",
               description: "AI suggests optimal crops based on soil pH, NPK, rainfall, and temperature data",
               color: "text-success",
-              bgColor: "bg-success/10"
+              bgColor: "bg-success/10",
+              link: "/crop"
             },
             {
               icon: Droplets,
               title: "Fertilizer Advisor",
               description: "ML-based fertilizer type and quantity recommendations for maximum yield",
               color: "text-info",
-              bgColor: "bg-info/10"
+              bgColor: "bg-info/10",
+              link: "/fertilizer"
             },
             {
               icon: Bug,
               title: "Disease Detection",
               description: "CNN-powered leaf image analysis detecting 100+ crop diseases instantly",
               color: "text-destructive",
-              bgColor: "bg-destructive/10"
+              bgColor: "bg-destructive/10",
+              link: "/disease"
             },
             {
               icon: TrendingUp,
               title: "Market Price Prediction",
               description: "LSTM time-series forecasting of crop prices using eNAM mandi data",
               color: "text-warning",
-              bgColor: "bg-warning/10"
+              bgColor: "bg-warning/10",
+              link: "/market"
             },
             {
               icon: FileText,
               title: "Scheme Recommender",
               description: "Hybrid ML matching your profile to PM-KISAN, PMFBY, PMKSY and 30+ schemes",
               color: "text-accent",
-              bgColor: "bg-accent/10"
+              bgColor: "bg-accent/10",
+              link: "/schemes"
             },
             {
               icon: MessageCircle,
               title: "AI Assistant",
               description: "Multilingual chatbot answering farming queries in Hindi, English, Tamil",
               color: "text-primary",
-              bgColor: "bg-primary/10"
+              bgColor: "bg-primary/10",
+              link: "/ai-assistant"
             }
           ].map((feature, idx) => (
-            <Card 
-              key={idx} 
-              className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 bg-gradient-card border-border/50"
-            >
-              <div className={`w-12 h-12 rounded-lg ${feature.bgColor} flex items-center justify-center mb-4`}>
-                <feature.icon className={`w-6 h-6 ${feature.color}`} />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </Card>
+            <Link key={idx} to={feature.link}>
+              <Card 
+                className="p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1 bg-gradient-card border-border/50 cursor-pointer hover:border-primary/50"
+              >
+                <div className={`w-14 h-14 rounded-xl ${feature.bgColor} flex items-center justify-center mb-4`}>
+                  <feature.icon className={`w-7 h-7 ${feature.color}`} />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Tech Stack Section */}
-      <section className="container mx-auto px-4 py-20">
-        <Card className="p-8 md:p-12 bg-gradient-card border-border/50">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Built with Production-Grade ML Stack
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              No IoT sensors required - Pure ML/AI driven insights
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">Frontend</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• React + TypeScript</li>
-                <li>• Tailwind CSS</li>
-                <li>• Chart.js/Recharts</li>
-                <li>• Responsive Design</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">ML Models</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• CNN (EfficientNet/MobileNet)</li>
-                <li>• LSTM Time Series</li>
-                <li>• Random Forest</li>
-                <li>• Hybrid Recommender</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">APIs & Data</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• IMD Weather API</li>
-                <li>• eNAM Market Data</li>
-                <li>• data.gov.in Integration</li>
-                <li>• PlantVillage Dataset</li>
-              </ul>
-            </div>
-          </div>
-        </Card>
-      </section>
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-20">
@@ -203,8 +169,8 @@ const Landing = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of Indian farmers using AI-Kisan for data-driven agriculture decisions
           </p>
-          <Link to="/dashboard">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-glow">
+          <Link to="/auth">
+            <Button size="lg" className="bg-gradient-primary hover:shadow-glow text-lg px-8 py-6">
               Launch Dashboard
             </Button>
           </Link>
